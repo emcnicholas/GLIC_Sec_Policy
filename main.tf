@@ -1,4 +1,7 @@
+##################################
 # Variables
+##################################
+
 variable "fmc_user" {
   description = "FMC Username"
   type        = string

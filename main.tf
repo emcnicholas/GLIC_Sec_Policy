@@ -157,7 +157,7 @@ resource "fmc_ftd_deploy" "ftd_cluster-1" {
         fmc_access_rules.access_rule_1,
         fmc_access_rules.access_rule_2
     ]
-    device = data.fmc_device_cluster.ftd_cluster-1
+    device = data.fmc_device_cluster.ftd_cluster-1.id
     ignore_warning = false
     force_deploy = false
 }

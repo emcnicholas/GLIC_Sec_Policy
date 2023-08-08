@@ -35,3 +35,4 @@ provider "fmc" {
   fmc_host = var.fmc_host
   fmc_insecure_skip_verify = true
 }
+

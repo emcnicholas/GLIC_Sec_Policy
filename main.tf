@@ -151,23 +151,18 @@ resource "fmc_access_rules" "access_rule_2" {
     new_comments = ["Dev outbound web traffic"]
 }
 
-# Deploy policy if any changes exist
-resource "fmc_ftd_deploy" "ftd_cluster-1" {
-    depends_on = [
-        fmc_access_rules.access_rule_1,
-        fmc_access_rules.access_rule_2
-    ]
-    device = data.fmc_device_cluster.ftd_cluster-1.id
-    ignore_warning = false
-    force_deploy = false
+resource "fmc_access_rules" "access_rule_3" {
+    depends_on = [data.fmc_access_policies.acp]
+    acp                = data.fmc_access_policies.acp.id
+    section            = "mandatory"
+    name               = "Deny Any Any"
+    action             = "block"
+    enabled            = true
+    send_events_to_fmc = true
+    log_files          = false
+    log_begin          = true
+    new_comments = ["Deny Any"]
 }
-resource "fmc_ftd_deploy" "ftd_cluster-2" {
-    depends_on = [
-        fmc_access_rules.access_rule_1,
-        fmc_access_rules.access_rule_2
-    ]
-    device = data.fmc_device_cluster.ftd_cluster-2.id
-    ignore_warning = false
-    force_deploy = false
-}
+
+
 

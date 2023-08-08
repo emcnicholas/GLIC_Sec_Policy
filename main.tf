@@ -47,10 +47,10 @@ data "fmc_access_policies" "acp" {
     name = "GLIC-Access-Policy"
 }
 data "fmc_device_cluster" "ftd_cluster-1" {
-    name = "10.100.1.246"
+    name = "ftd_cluster-1"
 }
 data "fmc_device_cluster" "ftd_cluster-2" {
-    name = "10.100.2.80"
+    name = "ftd_cluster-2"
 }
 data "fmc_dynamic_objects" "dev_app1" {
     name = "Dev_App1"

@@ -47,10 +47,10 @@ data "fmc_access_policies" "acp" {
     name = "GLIC-Access-Policy"
 }
 data "fmc_device_cluster" "ftd_cluster-1" {
-    name = "ftd_cluster-1"
+    name = "10.100.1.246"
 }
 data "fmc_device_cluster" "ftd_cluster-2" {
-    name = "ftd_cluster-2"
+    name = "10.100.2.80"
 }
 data "fmc_dynamic_objects" "dev_app1" {
     name = "Dev_App1"
@@ -157,7 +157,7 @@ resource "fmc_ftd_deploy" "ftd_cluster-1" {
         fmc_access_rules.access_rule_1,
         fmc_access_rules.access_rule_2
     ]
-    device = data.fmc_device_cluster.ftd_cluster-1.id
+    device = data.fmc_device_cluster.ftd_cluster-1
     ignore_warning = false
     force_deploy = false
 }
